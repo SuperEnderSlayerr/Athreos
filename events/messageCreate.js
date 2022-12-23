@@ -1,4 +1,4 @@
-const { Events } = require('discord.js');
+const { Events, EmbedBuilder } = require('discord.js');
 require("dotenv").config();
 historyData = {}
 
@@ -11,6 +11,9 @@ module.exports = {
         channel = await client.channels.cache.get(message.channelId)
 		historyData[`${message.author.id}`] = message.channelId
 		console.log(historyData)
+		const embed = new EmbedBuilder()
+			.setTitle(`Message Interaction!`)
+			.setDescription(`User <@!${message.author.id}> sent a message in channel <#${historyData[`${message.author.id}`]}>`)
 		channel.send(`${historyData[`${message.author.id}`]}, ${message.author.id}`)
 
 	},
