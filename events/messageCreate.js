@@ -14,7 +14,7 @@ module.exports = {
 		const embed = new EmbedBuilder()
 			.setTitle(`Message Interaction!`)
 			.setDescription(`User <@!${message.author.id}> sent a message in channel <#${historyData[`${message.author.id}`]}>`)
-		channel.send(`${historyData[`${message.author.id}`]}, ${message.author.id}`)
+		channel.send({embeds: [embed]})
 
 	},
 };
