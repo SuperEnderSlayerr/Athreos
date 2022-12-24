@@ -1,4 +1,5 @@
 const { Events, EmbedBuilder } = require('discord.js');
+const { defembed } = require('../functions/defaultembed');
 require("dotenv").config();
 historyData = {}
 
@@ -11,20 +12,10 @@ module.exports = {
         channel = await client.channels.cache.get(message.channelId)
 		historyData[`${message.author.id}`] = message.channelId
 		console.log(historyData)
-		const embed = new EmbedBuilder()
-			.setTitle(`Message Interaction!`)
-			.setDescription(`User <@!${message.author.id}> sent a message in channel <#${historyData[`${message.author.id}`]}>`)
-			.setColor('Fuchsia')
-			.setFooter({
-				text: `Athreos by Clara and Ender`,
-				iconURL: client.user.defaultAvatarURL
-			})
-			.setAuthor({
-				name: 'Athreos',
-				iconURL: client.user.defaultAvatarURL
-			})
-			.setThumbnail(message.author.defaultAvatarURL)
-			.setTimestamp(new Date())
+		const embed = defembed(
+			`Message Interaction!`,
+			`User <@!${message.author.id}> sent a message in channel <#${historyData[`${message.author.id}`]}>`,
+			message.author.displayAvatarURL())
 		channel.send({embeds: [embed]})
 
 	},
