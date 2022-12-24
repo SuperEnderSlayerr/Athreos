@@ -1,25 +1,17 @@
-const { Events, EmbedBuilder } = require('discord.js');
-const { defembed } = require('../functions/defaultembed');
+const { Events } = require('discord.js');
 const backup = require('../data/historyData-backup');
-const historyDataInit = require("../data/historyData-init.js")
-var historyData = historyDataInit()
-console.log(historyData)
+const historyDataInit = require("../data/historyData-init.js");
+const historyData = historyDataInit();
+const oocChannelInit = require("../data/OOC-channel-init.js");
+const oocChannels = oocChannelInit();
 
 // Catches every message created.
 module.exports = {
 	name: Events.MessageCreate,
 	async execute(message) {
 		if (message.author.bot) return;
-		client = message.client
-        channel = await client.channels.cache.get(message.channelId)
-		historyData[`${message.author.id}`] = message.channelId
-		console.log(historyData)
-		backup(historyData)
-		const embed = defembed(
-			`Message Interaction!`,
-			`User <@!${message.author.id}> sent a message in channel <#${historyData[`${message.author.id}`]}>`,
-			message.author.displayAvatarURL())
-		channel.send({embeds: [embed]})
-
+		if (oocChannels.includes(message.channelId)) return;
+		historyData[`${message.author.id}`] = message.channelId;
+		backup(historyData);
 	},
 };

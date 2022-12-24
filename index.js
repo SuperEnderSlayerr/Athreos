@@ -17,7 +17,7 @@ for (const file of commandFiles) {
 	const filePath = path.join(commandsPath, file);
 	const command = require(filePath);
 	// Set a new item in the Collection with the key as the command name and the value as the exported module.
-    // Also makes sure each command has the data and execute properties.
+	// Also makes sure each command has the data and execute properties.
 	if ('data' in command && 'execute' in command) {
 		client.commands.set(command.data.name, command);
 	} else {

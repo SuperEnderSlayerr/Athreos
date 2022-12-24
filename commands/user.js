@@ -9,6 +9,6 @@ module.exports = {
 		// interaction.member is the GuildMember object, which represents the user in the specific guild
 		const embed = new EmbedBuilder()
 			.setDescription(`This command was run by ${interaction.user.username}, who joined on ${interaction.member.joinedAt}.`);
-		await interaction.reply({embeds: [embed]});
+		await interaction.reply({ embeds: [embed] });
 	},
 };
