@@ -7,9 +7,9 @@ function defembed(title,description,thumbnail,interaction){
 		const embed = new EmbedBuilder()
     		.setTitle(title)
     		.setDescription(description)
-    		.setColor('Red')
+    		.setColor([11, 118, 70])
     		.setFooter({
-    			text: `Athreos by Clara and Ender`,
+    			text: `Athreos by Ender and Clara`,
     			iconURL: client.user.displayAvatarURL()
     		})
     		.setAuthor({
@@ -24,9 +24,9 @@ function defembed(title,description,thumbnail,interaction){
     const embed = new EmbedBuilder()
     		.setTitle(title)
     		.setDescription(description)
-    		.setColor('Red')
+    		.setColor([11, 118, 70])
     		.setFooter({
-    			text: `Athreos by Clara and Ender`,
+    			text: `Athreos by Ender and Clara`,
     			iconURL: interaction.client.user.displayAvatarURL()
     		})
     		.setAuthor({
