@@ -1,4 +1,5 @@
-const { Events } = require('discord.js');
+const { Events, EmbedBuilder } = require('discord.js');
+const { defembed } = require('../functions/defaultembed');
 const backup = require('../data/historyData-backup');
 const historyDataInit = require("../data/historyData-init.js")
 var historyData = historyDataInit()
@@ -14,7 +15,11 @@ module.exports = {
 		historyData[`${message.author.id}`] = message.channelId
 		console.log(historyData)
 		backup(historyData)
-		channel.send(`${historyData[`${message.author.id}`]}, ${message.author.id}`)
+		const embed = defembed(
+			`Message Interaction!`,
+			`User <@!${message.author.id}> sent a message in channel <#${historyData[`${message.author.id}`]}>`,
+			message.author.displayAvatarURL())
+		channel.send({embeds: [embed]})
 
 	},
 };
