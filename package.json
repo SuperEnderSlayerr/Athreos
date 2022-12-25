@@ -1,0 +1,29 @@
+{
+  "name": "athreos",
+  "version": "0.1.1",
+  "homepage": "https://github.com/SuperEnderSlayerr/Athreos#readme",
+  "description": "Atheros is a bot designed to bridge the gap between The Syndicate's Web App and its Discord server.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "deploy": "node deploy-commands.js",
+    "deploy commands": "node deploy-commands.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SuperEnderSlayerr/Athreos.git"
+  },
+  "author": "Ender",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SuperEnderSlayerr/Athreos/issues"
+  },
+  "dependencies": {
+    "axios": "^1.2.1",
+    "discord.js": "^14.7.1",
+    "dotenv": "^16.0.3"
+  },
+  "devDependencies": {
+    "eslint": "^8.30.0"
+  }
+}

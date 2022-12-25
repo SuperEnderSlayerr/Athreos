@@ -102,3 +102,7 @@ dist
 
 # TernJS port file
 .tern-port
+
+# History data backup
+data/historyData-backup.txt
+data/OOC-channel-data.txt
