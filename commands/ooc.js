@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require('discord.js');
-const add = require('../data/OOC-add');
+const add = require('../data/OOC-channel-data/OOC-add');
 
 module.exports = {
 	data: new SlashCommandBuilder()

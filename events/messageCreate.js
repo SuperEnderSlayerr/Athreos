@@ -1,8 +1,8 @@
 const { Events } = require('discord.js');
-const backup = require('../data/historyData-backup');
-const historyDataInit = require("../data/historyData-init.js");
+const backup = require('../data/historyData/historyData-backup');
+const historyDataInit = require("../data/historyData/historyData-init.js");
 const historyData = historyDataInit();
-const oocChannelInit = require("../data/OOC-channel-init.js");
+const oocChannelInit = require("../data/OOC-channel-data/OOC-channel-init.js");
 const oocChannels = oocChannelInit();
 
 // Catches every message created.
