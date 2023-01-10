@@ -1,3 +1,4 @@
+/*
 const WebSocket = require('ws');
 
 const url = process.env.url || `ws://localhost:5000/`;
@@ -14,3 +15,4 @@ socket.on('message', function message(data) {
 });
 
 module.exports = socket;
+*/
