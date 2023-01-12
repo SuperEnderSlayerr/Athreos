@@ -42,3 +42,5 @@ for (const file of eventFiles) {
 
 // Launches the bot.
 client.login(token);
+
+module.exports = client;

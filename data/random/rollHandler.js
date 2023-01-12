@@ -6,9 +6,6 @@ module.exports = (preData) => {
 	postData.profRoll = roll(preData.profRoll.replace("d", ""));
 	postData.adv = roll(preData.adv.replace("d", ""));
 	postData.dis = roll(preData.dis.replace("d", ""));
-	postData.total = 0;
-	for (const key in postData) {
-		postData.total += parseInt(postData[key]);
-	}
+	postData.total = postData.abRoll + postData.profRoll + postData.adv - postData.dis + Number(preData.bonus);
 	return postData;
 };

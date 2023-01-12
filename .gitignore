@@ -106,3 +106,4 @@ dist
 # History data backup
 data/historyData/historyData-backup.txt
 data/OOC-channel-data/OOC-channel-data.txt
+data/random/voodooData.txt

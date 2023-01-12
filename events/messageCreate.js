@@ -14,5 +14,5 @@ module.exports = {
 		historyData[`${message.author.id}`] = message.channelId;
 		backup(historyData);
 	},
-	varData: historyData,
+	historyData: historyData,
 };

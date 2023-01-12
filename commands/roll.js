@@ -1,6 +1,5 @@
 const { SlashCommandBuilder } = require('discord.js');
-// const roll = require("../data/random/random-roll");
-const postHandler = require("../data/random/postHandler");
+const messageHandler = require("../data/random/messageHandler");
 const preData = {
 	discordId: false,
 	abName: "Body",
@@ -18,6 +17,6 @@ module.exports = {
 		.setDescription('Roll a variable sided die'),
 	async execute(interaction) {
 		preData.discordId = interaction.user.id;
-		postHandler(preData, interaction);
+		messageHandler(preData, interaction);
 	},
 };
