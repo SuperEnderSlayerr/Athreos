@@ -17,6 +17,7 @@ module.exports = {
 		.setDescription('Roll a variable sided die'),
 	async execute(interaction) {
 		preData.discordId = interaction.user.id;
+		interaction.reply("Rolling...");
 		messageHandler(preData, interaction);
 	},
 };
