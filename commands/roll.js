@@ -3,11 +3,11 @@ const messageHandler = require("../data/random/messageHandler");
 const preData = {
 	discordId: false,
 	abName: "Body",
-	abRoll: "d8",
+	abRoll: "d4",
 	profName: "Blades",
-	profRoll: "d10",
-	bonus: "4",
-	adv: "d6",
+	profRoll: "d4",
+	bonus: "1",
+	adv: "d4",
 	dis: "d4",
 };
 
