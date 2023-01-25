@@ -1,42 +1,39 @@
 const { EmbedBuilder } = require('discord.js');
 
 
-function defembed(title,description,thumbnail,interaction){
+function defembed(title,description,thumbnail,author,fields,image,interaction){
 	console.log(interaction)
 	if (interaction === undefined){
-		const embed = new EmbedBuilder()
-    		.setTitle(title)
-    		.setDescription(description)
-    		.setColor([11, 118, 70])
-    		.setFooter({
-    			text: `Athreos by Ender and Clara`,
-    			iconURL: client.user.displayAvatarURL()
-    		})
-    		.setAuthor({
-    			name: 'Athreos',
-    			iconURL: client.user.displayAvatarURL()
-    		})
-    		.setThumbnail(thumbnail)
-    		.setTimestamp(new Date())
-    	return embed
+		icon = client.user.displayAvatarURL()
+	}
+	else if (interaction !== undefined){
+		icon = interaction.client.user.displayAvatarURL()
 	};
-	if (interaction !== undefined){
-    const embed = new EmbedBuilder()
-    		.setTitle(title)
-    		.setDescription(description)
-    		.setColor([11, 118, 70])
-    		.setFooter({
-    			text: `Athreos by Ender and Clara`,
-    			iconURL: interaction.client.user.displayAvatarURL()
-    		})
-    		.setAuthor({
-    			name: 'Athreos',
-    			iconURL: interaction.client.user.displayAvatarURL()
-    		})
-    		.setThumbnail(thumbnail)
-    		.setTimestamp(new Date())
-    return embed
+	const embed = new EmbedBuilder()
+    	.setTitle(title)
+    	.setDescription(description)
+    	.setColor([11, 118, 70])
+    	.setFooter({
+    		text: `Athreos by Ender and Clara`,
+    		iconURL: icon
+    	})
+    	.setTimestamp(new Date())
+	if (image !== undefined){
+		embed.setImage(image)
 	};
+	if (author !== undefined){
+		embed.setAuthor({
+			name: author[0],
+			iconURL: author[1]
+		})
+	};
+	if (thumbnail !== undefined){
+		embed.setThumbnail(thumbnail)
+	};
+	if (fields !== undefined){
+		embed.addFields(fields)
+	}
+    
 }
 
 module.exports = { defembed }
