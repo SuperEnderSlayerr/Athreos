@@ -1,5 +1,4 @@
 const { SlashCommandBuilder } = require('discord.js');
-const socket = require("../websocket/websocket.js");
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -11,6 +10,7 @@ module.exports = {
 	async execute(interaction) {
 		const message = interaction.options.getString('message');
 		interaction.reply(`Sending the following message to the server's console: ${message}`);
-		socket.send(message);
+		await interaction.client.ws.send(message);
+		console.log("Got through the sending.");
 	},
 };

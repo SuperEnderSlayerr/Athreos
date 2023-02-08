@@ -1,5 +1,5 @@
-/*
 const WebSocket = require('ws');
+const handler = require("./handler");
 
 const url = process.env.url || `ws://localhost:5000/`;
 const socket = new WebSocket(url);
@@ -11,8 +11,7 @@ socket.on('open', () => {
 
 // Listen for messages and log them.
 socket.on('message', function message(data) {
-	console.log(data);
+	handler(data);
 });
 
 module.exports = socket;
-*/
