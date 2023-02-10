@@ -3,7 +3,8 @@ const path = require('node:path');
 const { Client, Collection, GatewayIntentBits } = require('discord.js');
 require("dotenv").config();
 const token = process.env.BOT_TOKEN;
-const ws = require("./websocket/websocket");
+// Put back for ws.
+// const ws = require("./websocket/websocket");
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages] });
 
@@ -44,6 +45,7 @@ for (const file of eventFiles) {
 // Launches the bot.
 client.login(token);
 
-client.ws = ws;
+// Put back for ws.
+// client.ws = ws;
 
 module.exports = client;
