@@ -3,7 +3,7 @@ let sucBool = null;
 
 module.exports = function OOCRemove(oldChannel) {
 	// Grabs the array.
-	const channelData = JSON.parse(fs.readFileSync("./data/OOC-channel-data.txt", (err) => {
+	const channelData = JSON.parse(fs.readFileSync("./data/OOC-channel-data/OOC-channel-data.txt", (err) => {
 		if (err) throw err;
 	}));
 	const index = channelData.indexOf(oldChannel);
@@ -14,7 +14,7 @@ module.exports = function OOCRemove(oldChannel) {
 		sucBool = false;
 	}
 	// Re-writes the array with the new channel added.
-	fs.writeFile("./data/OOC-channel-data.txt", JSON.stringify(channelData), (err) => {
+	fs.writeFile("./data/OOC-channel-data/OOC-channel-data.txt", JSON.stringify(channelData), (err) => {
 		if (err) throw err;
 	});
 	return sucBool;
