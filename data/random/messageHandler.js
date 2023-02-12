@@ -9,9 +9,10 @@ module.exports = async (preData) => {
 	const message = `Ability Score Roll ${preData["abRoll"]} **(${postData.abRollData.total})** + Proficiency Roll ${preData.profRoll} **(${postData.profRollData.total})** + Advantage Roll ${preData.adv} **(${postData.advData.total})** - Disadvantage Roll ${preData.dis} **(${postData.disData.total})** + bonus **(${preData.bonus})** = Total: **${postData.total}**`;
 	const channelId = historyData[`${preData.discordId}`];
 	await client.channels.cache.get(channelId).send(message);
+	// Posts something for explosions.
 	for (const attribute in postData) {
 		if (postData[`${attribute}`].total !== undefined) {
-			if (postData[`${attribute}`].explosions !== 0) client.channels.cache.get(channelId).send(`${JSON.stringify(attribute)} die Exploded ${JSON.stringify(postData[`${attribute}`].explosions)} times!`);
+			if (postData[`${attribute}`].explosions !== 0) client.channels.cache.get(channelId).send(`${postData[`${attribute}`].string} Exploded ${JSON.stringify(postData[`${attribute}`].explosions)} time(s)!`);
 		}
 	}
 
