@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const { EmbedBuilder } = require('discord.js');
 
 
@@ -36,4 +37,4 @@ function defembed(title,description,thumbnail,author,fields,image,interaction){
     
 }
 
-module.exports = { defembed }
+module.exports = { defembed };

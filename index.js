@@ -3,6 +3,8 @@ const path = require('node:path');
 const { Client, Collection, GatewayIntentBits } = require('discord.js');
 require("dotenv").config();
 const token = process.env.BOT_TOKEN;
+// Put back for ws.
+const ws = require("./websocket/websocket");
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages] });
 
@@ -17,7 +19,7 @@ for (const file of commandFiles) {
 	const filePath = path.join(commandsPath, file);
 	const command = require(filePath);
 	// Set a new item in the Collection with the key as the command name and the value as the exported module.
-    // Also makes sure each command has the data and execute properties.
+	// Also makes sure each command has the data and execute properties.
 	if ('data' in command && 'execute' in command) {
 		client.commands.set(command.data.name, command);
 	} else {
@@ -42,3 +44,8 @@ for (const file of eventFiles) {
 
 // Launches the bot.
 client.login(token);
+
+// Put back for ws.
+client.ws = ws;
+
+module.exports = client;
